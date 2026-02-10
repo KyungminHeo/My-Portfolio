@@ -5,7 +5,6 @@ export const PROFILE = {
   title: "AI·클라우드·CRM 풀스택 개발자",
   email: "rusemia@gmail.com",
   phone: "010-9046-7117",
-  location: "경기 하남시 미사강변동로",
   currentRole: "(주)덱스컨설팅 Dynamics 팀 차장",
   summaryQuote: `"문제를 해결하고 가치를 창출하는 개발자,\n아키텍처 설계부터 서비스 구현까지 비즈니스를 극대화합니다."`,
   introduction: "아키텍처 설계부터 AI·클라우드·데이터 엔지니어링까지 연결해\n비즈니스 가치를 극대화합니다.",
