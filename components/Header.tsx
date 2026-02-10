@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Code2 } from 'lucide-react';
 
 interface HeaderProps {
   activeSection: string;
@@ -41,8 +41,11 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-end items-center h-16">
-          {/* Logo Section Removed as per user request */}
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center cursor-pointer" onClick={() => handleNavClick('home')}>
+            <Code2 className="h-8 w-8 text-indigo-600 mr-2" />
+            <span className="font-bold text-xl text-slate-900">Heo Kyung-min</span>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-8">
@@ -50,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-sm font-bold transition-colors duration-200 hover:text-indigo-600 ${
+                className={`text-sm font-medium transition-colors duration-200 hover:text-indigo-600 ${
                   activeSection === item.id ? 'text-indigo-600' : 'text-slate-600'
                 }`}
               >

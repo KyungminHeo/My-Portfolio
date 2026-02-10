@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Layers, Brain, Server, Database, Cloud, Layout } from 'lucide-react';
 import { SKILL_CATEGORIES } from '../constants';

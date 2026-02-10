@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CAREER_TIMELINE, EARLY_CAREER } from '../constants';
 import { Calendar, History, Sprout } from 'lucide-react';

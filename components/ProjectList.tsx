@@ -4,11 +4,11 @@ import ProjectCard from './ProjectCard';
 
 const ProjectList: React.FC = () => {
   return (
-    <div className="space-y-12">
-      <div className="flex flex-col gap-12">
-        {PROJECTS.map((project, index) => (
+    <div className="space-y-16">
+      <div className="flex flex-col gap-16">
+        {PROJECTS.map((project) => (
           <div key={project.id} className="w-full break-inside-avoid">
-             <ProjectCard project={project} index={index + 1} />
+             <ProjectCard project={project} />
           </div>
         ))}
       </div>
