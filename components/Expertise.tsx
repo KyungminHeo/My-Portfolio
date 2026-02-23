@@ -33,15 +33,11 @@ const Expertise: React.FC = () => {
              Full-Stack & <br/>
              <span className="text-indigo-600">AI Integration</span>
            </h3>
-           <p className="text-slate-600 leading-relaxed text-lg">
-             기존의 웹/앱 개발 역량 위에 <span className="font-semibold text-purple-600">Azure OpenAI</span> 및 <span className="font-semibold text-purple-600">Cognitive Services</span>를 결합하여, 
-             데이터 수집부터 AI 기반 가치 창출까지 전 과정을 주도합니다.
-           </p>
 
            <div className="space-y-4 pt-4">
               <CheckItem 
-                title="MSA & Cloud Native"
-                desc="Azure Container Apps, Docker 기반의 유연한 아키텍처 설계"
+                title="MSA & Event-Driven"
+                desc="FastAPI, Kafka, Redis를 활용한 고성능 실시간 시스템 설계"
               />
               <CheckItem 
                 title="RAG Pipeline"

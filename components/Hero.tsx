@@ -45,12 +45,14 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="flex flex-col space-y-3 pt-4">
-              <div className="flex items-center space-x-3 text-slate-700 font-medium">
-                <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600">
-                   <Briefcase className="w-5 h-5" />
+              {PROFILE.currentRole && (
+                <div className="flex items-center space-x-3 text-slate-700 font-medium">
+                  <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600">
+                    <Briefcase className="w-5 h-5" />
+                  </div>
+                  <span>{PROFILE.currentRole}</span>
                 </div>
-                <span>{PROFILE.currentRole}</span>
-              </div>
+              )}
               <a href={`mailto:${PROFILE.email}`} className="flex items-center space-x-3 text-slate-700 font-medium hover:text-indigo-600 transition-colors">
                 <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600">
                    <Mail className="w-5 h-5" />

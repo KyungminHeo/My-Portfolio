@@ -17,7 +17,7 @@ const Introduction: React.FC = () => {
         {/* Left: Description */}
         <div className="space-y-8">
           <div className="relative pl-6 border-l-4 border-blue-500 bg-blue-50/50 p-6 rounded-r-xl">
-             <h3 className="text-2xl font-bold text-slate-800 leading-snug whitespace-pre-line">
+             <h3 className="text-2xl font-bold text-slate-800 leading-snug whitespace-pre-line break-keep">
                "{PROFILE.introduction}"
              </h3>
           </div>
@@ -65,8 +65,8 @@ const Introduction: React.FC = () => {
            <ValueCard 
              icon={<Layers className="w-6 h-6 text-indigo-600" />}
              title="Architecture & Design"
-             desc="대규모 캠페인 시스템, 멀티테넌트 웹서비스, API 서버 아키텍처 설계"
-             tags={["System Design", "Microservices"]}
+             desc="MSA 기반 실시간 채팅 플랫폼, 대규모 캠페인 시스템, API 서버 아키텍처 설계"
+             tags={["System Design", "Microservices", "Kafka"]}
              color="indigo"
            />
            <ValueCard 

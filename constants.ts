@@ -2,14 +2,14 @@ import { Project, SkillCategory, Education, CareerItem } from './types';
 
 export const PROFILE = {
   name: "허경민",
-  title: "AI·클라우드·CRM 풀스택 개발자",
+  title: "AI, Backend, 클라우드, CRM 풀스택 개발자",
   email: "rusemia@gmail.com",
   phone: "010-9046-7117",
-  currentRole: "(주)덱스컨설팅 Dynamics 팀 차장",
+  currentRole: "",
   summaryQuote: `"문제를 해결하고 가치를 창출하는 개발자,\n아키텍처 설계부터 서비스 구현까지 비즈니스를 극대화합니다."`,
-  introduction: "아키텍처 설계부터 AI·클라우드·데이터 엔지니어링까지 연결해\n비즈니스 가치를 극대화합니다.",
+  introduction: "아키텍처 설계부터 AI·백엔드까지,\n비즈니스 가치를 극대화합니다.",
   introPoints: [
-    "엔터프라이즈 CRM 구축 경험을 바탕으로, 최근에는 생성형 AI(음성 인식/요약/RAG) 기술을 활용한 지능형 자동화 서비스를 전문적으로 개발하고 있습니다.",
+    "엔터프라이즈 SaaS 및 CRM 구축 경험을 바탕으로, 최근에는 생성형 AI와 백엔드 기술을 결합한 지능형 자동화 서비스 구축에 집중하고 있습니다.",
     "단순한 기능 구현을 넘어, 서비스의 확장성과 효율성을 최우선으로 고려하며 조직 내 기술 리더십을 발휘하여 팀의 성장을 돕습니다."
   ]
 };
@@ -18,11 +18,11 @@ export const KEY_COMPETENCIES = [
   { name: "Azure OpenAI", icon: "Bot" },
   { name: "RAG System", icon: "Database" },
   { name: "Python / FastAPI", icon: "Code" },
+  { name: "MSA & Kafka", icon: "Layers" },
   { name: "C# .NET", icon: "Layout" },
   { name: "Dynamics 365 & Power Platform", icon: "Users" },
   { name: "Azure Cloud", icon: "Cloud" },
   { name: "Docker", icon: "Box" },
-  { name: "Vector DB", icon: "Server" },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
@@ -40,19 +40,19 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     category: "BACKEND",
-    skills: ["Python (FastAPI)", "C# (.NET Core)", "ASP.NET MVC", "SQLAlchemy", "RESTful API"],
+    skills: ["Python (FastAPI)", "C# (.NET Core)", "ASP.NET MVC", "SQLAlchemy", "RESTful API", "WebSocket"],
     icon: "Server",
     colorClass: "bg-indigo-100 text-indigo-700 border-indigo-200"
   },
   {
     category: "DATA",
-    skills: ["PostgreSQL (pgvector)", "MSSQL", "Cosmos DB", "Redis", "Dataverse", "MongoDB"],
+    skills: ["PostgreSQL (pgvector)", "MongoDB", "Redis", "Kafka", "MSSQL", "Dataverse"],
     icon: "Database",
     colorClass: "bg-emerald-100 text-emerald-700 border-emerald-200"
   },
   {
     category: "CLOUD DEVOPS",
-    skills: ["Azure Container Apps", "Docker", "Azure Functions", "Git", "Linux (Nginx)", "Jira/Power Automate"],
+    skills: ["Azure Container Apps", "Docker", "Nginx (API Gateway)", "Linux", "Git", "Locust (Load Test)"],
     icon: "Cloud",
     colorClass: "bg-slate-100 text-slate-700 border-slate-200"
   }
@@ -62,7 +62,7 @@ export const CAREER_TIMELINE: CareerItem[] = [
   {
     company: "(주) 덱스컨설팅",
     role: "Dynamics 팀 | 차장",
-    period: "2024.04 - 재직 중",
+    period: "2024.04 - 2026.02",
     description: "AI & Cloud Solution. AI 실시간 회의록 솔루션 'DADAM' PM/PL 총괄 및 아키텍처 설계. Azure OpenAI/Speech 기반 기업용 RAG 챗봇 및 KT ESG POV 리딩."
   },
   {
@@ -110,6 +110,63 @@ export const EARLY_CAREER: CareerItem[] = [
 
 export const PROJECTS: Project[] = [
   // --- Personal Projects (Top Priority) ---
+  {
+    id: "p0",
+    title: "MSA 기반 실시간 채팅 플랫폼 (Chat Platform)",
+    period: "2024.08 ~ 2024.11",
+    isPersonal: true,
+    summary: "대규모 트래픽 환경에서의 실시간 채팅을 지원하는 MSA 기반 백엔드 시스템입니다. WebSocket, Kafka, Redis를 활용하여 고성능·고가용성 인프라를 구축했습니다.",
+    techStack: ["Python 3.11", "FastAPI", "WebSocket", "Kafka", "Redis", "MongoDB", "PostgreSQL", "Nginx", "Docker", "Locust"],
+    role: "System Architecture & Backend Dev (100%)",
+    description: "채팅 서비스의 핵심 요구사항인 실시간성, 확장성, 안정성을 충족하기 위해 설계된 MSA 백엔드 시스템입니다. 도메인별 서비스 분리, 전 구간 비동기 I/O, 다층 캐싱 전략을 통해 엔터프라이즈급 채팅 엔진을 구현했습니다.",
+    keyAchievements: [
+      "3개 독립 마이크로서비스(User, Chat, Notification) 분리 및 Kafka 기반 비동기 통신 구현",
+      "FastAPI + aiokafka + Motor 기반의 전 구간 비동기 I/O 파이프라인 구축",
+      "Redis 온라인 상태 공유 및 ConnectionManager 패턴으로 다중 인스턴스 실시간 브로드캐스트 구현",
+      "Nginx API Gateway를 통한 Rate Limiting, CORS, WebSocket Upgrade 통합 관리",
+      "Locust 부하 테스트: 500명 동시접속 시 연결 끊김 0건 및 WebSocket RTT 4ms 달성",
+      "커서 기반 페이지네이션(Cursor-based Pagination) 도입으로 대용량 메시지 조회 성능 최적화"
+    ],
+    architecture: [
+      "API Gateway (Nginx): 단일 진입점 제공, URI 기반 라우팅 및 Rate Limiting",
+      "User Service (PostgreSQL): JWT 기반 인증 및 유저 프로필 관리",
+      "Chat Service (MongoDB): WebSocket 통신 및 메시지 영구 저장, Kafka Producer 역할",
+      "Notification Service (Redis): Kafka Consumer로서 오프라인 유저 알림 처리 및 상태 관리",
+      "Message Broker (Kafka): 서비스 간 결합도 제거를 위한 이벤트 드리븐 아키텍처"
+    ],
+    challenges: [
+      {
+        title: "A. MSA 아키텍처 설계 및 서비스 분리",
+        problem: "모놀리식 구조에서는 채팅 트래픽 급증 시 인증이나 알림 로직까지 영향을 받는 단일 장애점(SPOF) 문제가 발생할 위험이 컸습니다.",
+        solution: "도메인 경계를 기준으로 User, Chat, Notification 서비스를 분리하고, 서비스 간 직접 호출 대신 Kafka를 통한 이벤트 기반 비동기 통신을 도입하여 독립적인 배포와 확장이 가능한 구조를 확보했습니다."
+      },
+      {
+        title: "B. WebSocket 실시간 메시지 처리 엔진",
+        problem: "HTTP Polling 방식은 불필요한 요청 반복과 지연이 발생하여 실시간성이 중요한 채팅 서비스에 부적합했습니다.",
+        solution: "WebSocket 기반 양방향 통신과 ConnectionManager 패턴을 구현했습니다. 메시지 전송 시 'DB 저장 → 응답 생성 → 브로드캐스트 → Kafka 발행 → 캐시 갱신'의 5단계 파이프라인을 설계하여 데이터 일관성과 실시간성을 동시에 확보했습니다."
+      },
+      {
+        title: "C. Kafka 이벤트 기반 오프라인 알림 시스템",
+        problem: "WebSocket 연결이 끊긴 오프라인 유저에게도 메시지 유실 없이 알림을 전달해야 했습니다.",
+        solution: "Chat Service에서 발행한 이벤트를 Notification Service가 구독하도록 설계했습니다. Redis에서 유저의 온라인 상태를 실시간 확인하여 오프라인 유저에게만 선택적으로 알림을 저장하고, Kafka 연결 실패 시 백오프 재시도 전략을 적용해 안정성을 높였습니다."
+      },
+      {
+        title: "D. Redis 다층 캐싱 전략 설계",
+        problem: "매 요청마다 DB를 조회하면 응답 지연이 발생하며, 특히 채팅방 입장 시 최근 메시지 로딩에서 병목이 발생했습니다.",
+        solution: "유저 프로필, 최근 메시지(30개), 온라인 상태, 알림 데이터 등 4가지 레이어에 캐싱을 적용했습니다. Redis Pipeline을 활용하여 알림 일괄 읽음 처리 시 네트워크 왕복 비용을 최소화했습니다."
+      },
+      {
+        title: "E. Nginx를 활용한 인프라 제어",
+        problem: "마이크로서비스별 직접 접근 시 보안 취약점이 발생하고 포트 관리가 복잡해지는 문제가 있었습니다.",
+        solution: "Nginx를 Reverse Proxy로 구성하여 단일 진입점을 제공하고, Rate Limiting을 적용해 DDoS 공격을 방어했습니다. 또한 WebSocket Upgrade 헤더 처리와 타임아웃 설정을 통해 안정적인 연결 유지를 보장했습니다."
+      }
+    ],
+    insights: [
+      "비동기 프로그래밍의 위력: 전 계층에 async/await를 적용함으로써 동시성 처리 능력이 비약적으로 향상됨을 확인",
+      "이벤트 드리븐의 유연성: Kafka 도입으로 서비스 간 의존성을 제거하여 시스템 전체의 가용성과 확장성을 확보",
+      "부하 테스트의 중요성: Locust를 통한 수치 기반 검증으로 시스템의 임계치를 파악하고 병목 지점을 최적화하는 경험"
+    ]
+  },
   {
     id: "p1",
     title: "Minibuds (문서 기반 지능형 Q&A 시스템)",
@@ -225,7 +282,7 @@ export const PROJECTS: Project[] = [
     id: "w1",
     title: "AI 실시간 회의록 - DADAM",
     company: "(주) 덱스컨설팅",
-    period: "2024.04 ~ 재직중",
+    period: "2024.04 ~ 2026.02",
     role: "PM / PL / 아키텍처 총괄",
     summary: "Azure Speech SDK와 생성형 AI를 활용한 실시간 다국어 음성 인식 및 자동 회의록 요약 솔루션입니다.",
     techStack: ["Python", "FastAPI", "Azure Speech SDK", "Azure OpenAI", "PowerApps (PCF)", "WebSocket"],
