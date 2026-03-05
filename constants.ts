@@ -62,7 +62,7 @@ export const CAREER_TIMELINE: CareerItem[] = [
   {
     company: "(주) 덱스컨설팅",
     role: "Dynamics 팀 | 차장",
-    period: "2024.04 - 2026.02",
+    period: "2024.04 - 2025.11",
     description: "AI & Cloud Solution. AI 실시간 회의록 솔루션 'DADAM' PM/PL 총괄 및 아키텍처 설계. Azure OpenAI/Speech 기반 기업용 RAG 챗봇 및 KT ESG POV 리딩."
   },
   {
