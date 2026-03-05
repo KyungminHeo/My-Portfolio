@@ -22,24 +22,24 @@ function App() {
         </section>
 
         {/* Introduction Section */}
-        <section id="introduction" className="py-24 bg-white">
+        <section id="introduction" className="py-24 print:py-8 bg-white">
            <Introduction />
         </section>
 
         {/* Expertise Section */}
-        <section id="expertise" className="py-24 bg-slate-50 border-y border-slate-100">
+        <section id="expertise" className="py-24 print:py-8 bg-slate-50 border-y border-slate-100">
            <Expertise />
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-24 bg-white">
+        <section id="experience" className="py-24 print:py-8 bg-white">
            <ExperienceTimeline />
         </section>
 
         {/* Projects Section - kept as detailed portfolio */}
-        <section id="projects" className="py-24 bg-slate-50 border-t border-slate-100">
+        <section id="projects" className="py-24 print:py-8 bg-slate-50 border-t border-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-2 mb-12">
+            <div className="flex flex-col gap-2 mb-12 print:mb-6">
               <span className="text-indigo-600 font-bold tracking-wider text-sm uppercase">PORTFOLIO</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
                 Key Projects
@@ -54,7 +54,7 @@ function App() {
         </section>
 
         {/* Education Section */}
-        <section id="education" className="py-24 bg-white">
+        <section id="education" className="py-24 print:py-8 bg-white">
            <EducationSection />
         </section>
       </main>

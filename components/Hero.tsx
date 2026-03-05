@@ -15,11 +15,11 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative bg-gradient-to-br from-indigo-50/50 via-white to-blue-50/30 pt-28 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <div className="relative bg-gradient-to-br from-indigo-50/50 via-white to-blue-50/30 pt-28 pb-20 md:pt-40 md:pb-32 print:pt-10 print:pb-10 overflow-hidden">
       
       {/* Background Decorative Elements */}
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-200/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-200/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-200/20 rounded-full blur-3xl pointer-events-none print:hidden"></div>
+      <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-200/20 rounded-full blur-3xl pointer-events-none print:hidden"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
