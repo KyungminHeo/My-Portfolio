@@ -111,6 +111,64 @@ export const EARLY_CAREER: CareerItem[] = [
 export const PROJECTS: Project[] = [
   // --- Personal Projects (Top Priority) ---
   {
+    id: "p_langgraph",
+    title: "LangGraph 기반 지능형 LLM API 게이트웨이",
+    period: "2025.02 ~ 진행중",
+    isPersonal: true,
+    summary: "LangGraph를 활용한 멀티 에이전트 LLM API 게이트웨이입니다. 사용자 의도 분류, 전문 에이전트 라우팅, 이중 Guard Rails, SSE 스트리밍 등을 구현했습니다.",
+    techStack: ["Python 3.11", "FastAPI", "LangGraph", "LangChain", "Ollama", "PostgreSQL", "Redis", "Docker", "Nginx"],
+    role: "Backend Dev (시스템 설계, 인프라 구성, 전체 서비스 구현)",
+    description: "단순한 LLM 프록시를 넘어, 사용자 질의의 의도를 실시간 분류하고 목적에 최적화된 전문 에이전트로 자동 라우팅하는 멀티 에이전트 아키텍처입니다. 입력 보안 검증, 출력 품질 검증, SSE 스트리밍, 캐싱 등 프로덕션 수준의 AI 인프라를 구축했습니다.",
+    keyAchievements: [
+      "LangGraph 멀티 에이전트 아키텍처 구축 (10+ 노드, 4방향 의도 분류)",
+      "이중 Guard Rails 보안 파이프라인 (Input/Output Guard) 구축",
+      "SSE 실시간 토큰 스트리밍 및 노드별 상태 알림 구현",
+      "Polyglot 모델 전략 (3B/7B 모델 자동 분배)으로 속도와 품질 균형 달성",
+      "Redis 기반 다층 인프라 (캐싱, Rate Limiting, 로깅) 최적화",
+      "JWT + API Key 이중 인증 및 RBAC 시스템 구현"
+    ],
+    architecture: [
+      "Gateway Layer (Nginx): Rate Limiting, SSE Proxy, Timeout 설정",
+      "App Layer (FastAPI): 인증, 쿼터, 캐싱, LangGraph 실행",
+      "Agent Layer (LangGraph): Input Guard → Intent Classifier → Subgraphs → Output Guard",
+      "Inference Layer (Ollama): llama3.2:3b (분류/경량), qwen2.5:7b (생성/분석)",
+      "Infra Layer: PostgreSQL (DB), Redis (Cache/Quota/Log)"
+    ],
+    challenges: [
+      {
+        title: "A. LLM 기반 동적 Intent Classification",
+        problem: "단어 수 기반의 단순 규칙으로는 '짧지만 검색이 필요한 질문'과 '단순 인사'를 구분하지 못해 비효율적인 모델 할당이 발생했습니다.",
+        solution: "LLM Structured Output을 활용해 사용자 의도를 4방향(search/analysis/creative/general)으로 동적 분류하고, 확신도가 낮으면 안전하게 General로 폴백하는 로직을 구현했습니다."
+      },
+      {
+        title: "B. 복합 에이전트 서브그래프 설계",
+        problem: "단일 LLM 호출로는 검색, 심층 분석, 도구 사용 등 복잡한 요구사항을 한 번에 처리하기 어려웠습니다.",
+        solution: "검색(3단계), 분석(3단계), 창작(Tool Calling) 등 의도별 전문 서브그래프를 설계하고, 경량/고성능 모델을 적재적소에 배치하는 Polyglot 전략을 적용했습니다."
+      },
+      {
+        title: "C. 이중 Guard Rails (입력/출력 검증)",
+        problem: "프롬프트 인젝션 공격이나 LLM의 저품질/빈 응답 생성 위험이 존재했습니다.",
+        solution: "Input Guard로 인젝션/유해 패턴을 사전 차단하여 비용을 절감하고, Output Guard로 응답 품질을 검증해 재시도하거나 안내 메시지로 폴백하는 양방향 안전장치를 구축했습니다."
+      },
+      {
+        title: "D. SSE 스트리밍과 Nginx 최적화",
+        problem: "LLM의 긴 응답 시간 동안 사용자가 대기해야 하며, Nginx의 기본 버퍼링 설정이 SSE 스트리밍을 방해했습니다.",
+        solution: "LangGraph의 astream_events로 토큰 단위 스트리밍을 구현하고, Nginx에서 proxy_buffering off 및 타임아웃을 300초로 설정하여 실시간성을 보장했습니다."
+      },
+      {
+        title: "E. Redis 다층 인프라 서비스 설계",
+        problem: "중복 질문에 대한 비용 낭비와 사용자별 사용량 제어가 필요했습니다.",
+        solution: "단일 Redis로 응답 캐싱(Cache-Aside), 분당 쿼터(Atomic INCR), 토큰 로깅(Pipeline)을 통합 구현하여 인프라 복잡도를 낮추고 네트워크 효율을 높였습니다."
+      }
+    ],
+    insights: [
+      "LangGraph의 조건부 분기와 서브그래프가 복잡한 AI 워크플로우 관리에 핵심적임을 확인",
+      "Guard Rails는 비용 절감과 서비스 품질 안정화 양면에서 필수적",
+      "Polyglot LLM 전략으로 응답 속도와 품질의 균형을 맞추는 것이 실용적",
+      "SSE 스트리밍 시 Nginx 등 앞단 프록시의 설정(버퍼링 해제)이 매우 중요함"
+    ]
+  },
+  {
     id: "p0",
     title: "MSA 기반 실시간 채팅 플랫폼 (Chat Platform)",
     period: "2024.08 ~ 2024.11",
