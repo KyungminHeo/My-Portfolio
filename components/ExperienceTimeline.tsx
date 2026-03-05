@@ -23,7 +23,7 @@ const ExperienceTimeline: React.FC = () => {
         <div className="lg:col-span-2 space-y-12">
            <div className="relative border-l-2 border-slate-200 ml-3 space-y-12 pb-4">
              {CAREER_TIMELINE.map((job, idx) => (
-               <div key={idx} className="relative pl-10">
+               <div key={idx} className="relative pl-10 break-inside-avoid">
                  {/* Timeline Dot */}
                  <div className={`absolute left-[-9px] top-1 w-5 h-5 rounded-full border-4 border-white ${idx === 0 ? 'bg-indigo-600 shadow-md shadow-indigo-200' : 'bg-white border-indigo-400'}`}></div>
                  
@@ -49,7 +49,7 @@ const ExperienceTimeline: React.FC = () => {
         {/* Right Sidebar */}
         <div className="lg:col-span-1 space-y-8">
            {/* Total Experience Card */}
-           <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+           <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm break-inside-avoid">
               <div className="flex justify-between items-start mb-4">
                  <div>
                    <span className="text-indigo-600 font-bold text-xs uppercase tracking-wider">TOTAL EXPERIENCE</span>
@@ -67,7 +67,7 @@ const ExperienceTimeline: React.FC = () => {
            </div>
 
            {/* Early Career Card */}
-           <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+           <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm break-inside-avoid">
               <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
                  <Sprout className="w-5 h-5 text-emerald-600" />
                  <h3 className="text-lg font-bold text-slate-800">Early Career & Foundation</h3>
